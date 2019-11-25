@@ -7,6 +7,10 @@ This application has build using following technologies
   * Spark
   * Docker (Containerization)
 
+Prerequisites
+
+1. Docker
+
 Run:
 
 Firstly, makesure to create the hadoop base env by building the below docker image
