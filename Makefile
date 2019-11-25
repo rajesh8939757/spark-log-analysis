@@ -1,12 +1,11 @@
+DIR_SPARK_LOG_ANALYSIS=spark-log-analysis
+TAG=spark.log/analysis:1.0
+
 build:
-  build/mvn -DskipTests clean package
-up:
-  docker network create spark-net
-  docker-compose -f docker-compose-hive.yml up -d
-down:
-  docker-compose -f docker-compose-hive.yml down
-  docker-compose -f docker-compose-spark-app.yml down
-  docker network rm spark-net
-app:
-  docker-compose -f docker-compose-spark-app.yml build
-  docker-compose -f docker-compose-spark-app.yml up
+    rm -rf $(DIR_SPARK_LOG_ANALYSIS)/project/target
+  	rm -rf $(DIR_SPARK_LOG_ANALYSIS)/target
+
+container
+    rm -rf $(DIR_SPARK_LOG_ANALYSIS)/project/target
+    rm -rf $(DIR_SPARK_LOG_ANALYSIS)/target
+    docker build -t $(TAG) .
